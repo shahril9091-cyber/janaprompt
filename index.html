@@ -21,6 +21,7 @@ function updateColorSuggestions(selectRecommended=false){
 const select=$('color'),previous=select.value,palette=STYLE_COLORS[$('style').value]||STYLE_COLORS['Formal Korporat'];
 const placeholder=new Option('-- Pilih warna sistem --','');placeholder.disabled=true;select.replaceChildren(placeholder);
 palette.forEach(([label,...colors],i)=>{const value=label+' ('+colors.join(' / ')+')';select.add(new Option(label+(i===0?' (Disyorkan)':''),value))});
+select.add(new Option('Liquid Metal Automotive','Liquid Metal Automotive - gradient metalik automotif, arang gelap, kelabu gunmetal dan perak krom (#111827 / #374151 / #64748B / #CBD5E1 / #F1F5F9)'));
 const ai='Warna bebas - AI pilih palet segar yang sesuai dengan fungsi sistem';select.add(new Option('Biar AI pilih warna',ai));
 if(selectRecommended)select.selectedIndex=1;
 else if(previous){if(!Array.from(select.options).some(o=>o.value===previous))select.add(new Option(previous,previous));select.value=previous}
